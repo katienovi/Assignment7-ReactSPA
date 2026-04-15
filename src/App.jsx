@@ -26,6 +26,9 @@ function App() {
 //Using a useEffect to update whenever the user selects a new choice. It selects a throw for the computer, then sends that information
 //To the getFinal function to determine if they win/lose/tie.
   useEffect( () => {
+    
+    //Should only run when the user selects an object -> We're just checking they have so it doesnt automatically start running.
+    if (playerChoice != null){
     //All possible computer throws
     const computerThrows = ['rock', 'paper', 'scissors'];
     //Selecting a random option from the above array.
@@ -40,6 +43,7 @@ function App() {
     const finalChoice = getFinal(playerChoice, computerValue);
     //Setting the result equal to the above decision.
     setResult(finalChoice);
+    }
 
 }, [playerChoice]);
 
