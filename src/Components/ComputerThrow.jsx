@@ -36,7 +36,7 @@ function ComputerThrow({choice}){
         }
 
 
-        //This function clears the interval, sets the cycling to false, and sets the current iamge as the final computer choice.
+        //This function clears the interval, sets the cycling to false, and sets the current image as the final computer choice.
         function finalImage() {
             clearInterval(interval);
             setActiveChanging(false);

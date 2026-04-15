@@ -20,7 +20,7 @@ function ResultsDisplay( {result} ){
         <div className="results-card">
                     <p id="final-text">Results: {finalMessage[result]}
                     </p>
-            </div>
+        </div>
 
     )
 }
