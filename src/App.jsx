@@ -3,8 +3,8 @@
   Date: 04.14.2026
   CSC 372-01
 
-  This is the App.jsx page of my rock, paper, scissors project. It includes 
-
+  This is the App.jsx page of my rock, paper, scissors project. It includes the main functionality that decides the computers choice,
+  sets up the players choice, decides the winner, and utilizes components to run the program.
 */
 
 //Importing use states, styles, and components
