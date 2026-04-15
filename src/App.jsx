@@ -36,7 +36,7 @@ function App() {
     //Setting a variable (computer value) equal to the randomly chosen option.
     const computerValue = computerThrows[choiceNumber];
 
-    //Setting the computer and player choice to their final values.
+    //Setting the computer.
     setComputerChoice(computerValue);
 
     //Calling getFinal to deterime if they win/lose/tie.
