@@ -8,7 +8,7 @@
 */
 
 //Importing use states, styles, and components
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import './style.css'
 import PlayerThrow from './Components/PlayerThrow';
@@ -23,11 +23,9 @@ function App() {
   //Setting the initial result to null.
   const [result, setResult] = useState(null);
 
-//This function sets the players final choice and randomly selects a throw for the computer, then sends that information
+//Using a useEffect to update whenever the user selects a new choice. It selects a throw for the computer, then sends that information
 //To the getFinal function to determine if they win/lose/tie.
-  function gameStart(choice){
-    const playerValue = choice;
-
+  useEffect( () => {
     //All possible computer throws
     const computerThrows = ['rock', 'paper', 'scissors'];
     //Selecting a random option from the above array.
@@ -37,15 +35,13 @@ function App() {
 
     //Setting the computer and player choice to their final values.
     setComputerChoice(computerValue);
-    setPlayerChoice(playerValue);
-
 
     //Calling getFinal to deterime if they win/lose/tie.
-    const finalChoice = getFinal(playerValue, computerValue);
+    const finalChoice = getFinal(playerChoice, computerValue);
     //Setting the result equal to the above decision.
     setResult(finalChoice);
 
-  }
+}, [playerChoice]);
 
 //This function contains the logic which decides if the player wins, losses, or ties.
 //player = the players final choice.
@@ -68,13 +64,15 @@ function App() {
   } 
 
 
+
+
   return (
     <>
      <h1>Rock, Paper, Scissors, GO!</h1>
 
      <PlayerThrow
-        onSelect={gameStart}
         selected={playerChoice}
+        setPlayerChoice={setPlayerChoice}
       />
 
       <ComputerThrow choice={computerChoice} />

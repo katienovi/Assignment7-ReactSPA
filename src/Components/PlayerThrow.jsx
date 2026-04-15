@@ -9,7 +9,7 @@
 import "../style.css";
 
 
-function PlayerThrow({selected, onSelect}){
+function PlayerThrow({selected, setPlayerChoice}){
 
     return (
     <>
@@ -17,15 +17,15 @@ function PlayerThrow({selected, onSelect}){
         <div className="container">
             <img id ="rock-img" src="Images/rock.PNG" alt="rock" 
             className = {selected === 'rock' ? 'selected' : ''}
-            onClick={() => onSelect('rock')} />
+            onClick={() => setPlayerChoice('rock')} />
 
             <img id = "paper-img" src="Images/paper.PNG" alt="paper" 
             className = {selected === 'paper' ? 'selected' : ''}
-            onClick={() => onSelect('paper')}/>
+            onClick={() => setPlayerChoice('paper')}/>
 
             <img id = "scissors-img" src="Images/scissors.PNG" alt="scissors" 
             className = {selected === 'scissors' ? 'selected' : ''}
-            onClick={() => onSelect('scissors')}/>
+            onClick={() => setPlayerChoice('scissors')}/>
 
             <p id="user-text">Your throw: {selected}</p>
         </div>
