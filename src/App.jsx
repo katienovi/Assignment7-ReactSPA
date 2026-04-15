@@ -16,7 +16,7 @@ import ComputerThrow from './Components/ComputerThrow';
 import ResultsDisplay from './Components/ResultsDisplay';
 
 function App() {
-  //Settin the initial player choice to null before they choose anything.
+  //Setting the initial player choice to null before they choose anything.
   const [playerChoice, setPlayerChoice] = useState(null);
   //Setting the initial computer choice to question mark.
   const [computerChoice, setComputerChoice] = useState('question-mark');
