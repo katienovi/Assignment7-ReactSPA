@@ -1,0 +1,111 @@
+/*
+  Name: Katie Williams
+  Date: 04.14.2026
+  CSC 372-01
+
+  This is the style.css page of my rock, paper, scissors project. It includes all the styling for each component and the main App.jsx page.
+
+*/
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    background-color:#CDB4DB;
+    text-align: center;
+    width:1084px;
+    padding: 20px;
+    margin: 0px;
+}
+
+img {
+    border: 2px solid gainsboro;
+    padding: 10px;
+}
+
+
+.card {
+  border: 3px solid #BDE0FE;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+
+  padding-bottom: 5px;
+  margin: 40px;
+}
+
+.computer-card {
+    border: 3px solid #FFC8DD;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.results-card {
+    border: 3px solid #FFAFCC;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;;
+}
+
+.points-card {
+    border: 3px solid #8093f1;
+
+    margin-top: 5px;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.card img {
+    margin: 50px;
+}
+
+
+.selected {
+    border: 2px solid #ff6ad5;
+    padding: 10px;
+}
+
+#reset-button {
+    background-color:#CDB4DB;
+    border: none;
+
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    margin-top: 3px;
+ }
+
+#play-button{
+    background-color: #8093f1;
+    border: none;
+
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+}
+
+#user-text, #computer-text {
+    font-weight: bold;
+}
+
+#computer-img {
+    width: 130px;
+    height: 170px;
+}
+
+

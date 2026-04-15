@@ -1,119 +1,85 @@
+/*
+  Name: Katie Williams
+  Date: 04.14.2026
+  CSC 372-01
+
+  This is the App.jsx page of my rock, paper, scissors project. It includes 
+
+*/
+
+//Importing use states, styles, and components
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import './style.css'
+import PlayerThrow from './Components/PlayerThrow';
+import ComputerThrow from './Components/ComputerThrow';
+import ResultsDisplay from './Components/ResultsDisplay';
 
 function App() {
-  const [count, setCount] = useState(0)
+  //Settin the initial player choice to null before they choose anything.
+  const [playerChoice, setPlayerChoice] = useState(null);
+  //Setting the initial computer choice to question mark.
+  const [computerChoice, setComputerChoice] = useState('question-mark');
+  //Setting the initial result to null.
+  const [result, setResult] = useState(null);
+
+//This function sets the players final choice and randomly selects a throw for the computer, then sends that information
+//To the getFinal function to determine if they win/lose/tie.
+  function gameStart(choice){
+    const playerValue = choice;
+
+    //All possible computer throws
+    const computerThrows = ['rock', 'paper', 'scissors'];
+    //Selecting a random option from the above array.
+    const choiceNumber = Math.floor(Math.random()*3);
+    //Setting a variable (computer value) equal to the randomly chosen option.
+    const computerValue = computerThrows[choiceNumber];
+
+    //Setting the computer and player choice to their final values.
+    setComputerChoice(computerValue);
+    setPlayerChoice(playerValue);
+
+
+    //Calling getFinal to deterime if they win/lose/tie.
+    const finalChoice = getFinal(playerValue, computerValue);
+    //Setting the result equal to the above decision.
+    setResult(finalChoice);
+
+  }
+
+//This function contains the logic which decides if the player wins, losses, or ties.
+//player = the players final choice.
+//computer = the computers final choice.
+  function getFinal(player, computer){
+      if (player === computer){
+        return "tie";
+      }
+      if (player === 'rock' && computer === 'scissors'){
+        return "win";
+      }
+      if (player === 'paper' && computer === 'rock'){
+        return "win"
+      }
+      if (player === 'scissors' && computer === 'paper'){
+        return "win";
+      }
+
+      return "lose";
+  } 
+
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+     <h1>Rock, Paper, Scissors, GO!</h1>
 
-      <div className="ticks"></div>
+     <PlayerThrow
+        onSelect={gameStart}
+        selected={playerChoice}
+      />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <ComputerThrow choice={computerChoice} />
+      <ResultsDisplay result={result} />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }

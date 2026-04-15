@@ -1,16 +1,16 @@
-# React + Vite
+## Getting Started
+1. Clone the repository.
+2. Install dependencies for this project using:
+```bash
+    cd Assignment7-ReactSPA
+    npm install
+```
+3. Run the server using:
+```bash
+    npm run dev
+```
+4. View the project in your browser using http://localhost:5173/ 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Reflection: 
+This was a fun project to try and implement! Personally, the hardest part for me was revisiting useEffect and figuring out how to use states to make my images cycle before deciding on the final choice. I also enjoyed being able to reuse parts of my original rock, paper, scissors program and seeing the differences between that and this react project.
